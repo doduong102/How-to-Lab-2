@@ -1,11 +1,11 @@
-Hey y'all. Today we're gonna be doing some cool hackermans stuff.
+Hey y'all. Today we're going to be learning how to start your own "minecraft" server and bugspray your very own error-ridden java files
 
 
 A) Making your own Webserver
 
-B) Remotely Connecting
+B) Debugging
 
-C) Trying Some Commands
+C) Takeaways from an amateur's perspective
 
 
 # PART A| Evading tips by making your own Server
@@ -16,12 +16,17 @@ C) Trying Some Commands
 In week 2 we created a NumberServer. After modifying the Handler class we can make it accept strings and perform somewhat similar functions. Another key modification is renaming the NumberServer class containing main to StringServer. Here's the changed code:
 <img width="593" alt="image" src="https://user-images.githubusercontent.com/130004918/234173108-4e053fea-8326-4a6c-8ac0-a4ad838889be.png">
 
+Which methods in your code are called?
+What are the relevant arguments to those methods, and the values of any relevant fields of the class?
+How do the values of any relevant fields of the class change from this specific request? If no values got changed, explain why.
 
-
-<img width="960" alt="image" src="https://user-images.githubusercontent.com/130004918/231018113-c5140c12-e47e-4d32-83f3-1ddab238b385.png">
-Congrats, you now have successfully installed vscode. And you have my blessing to move onto the next part
-
-
+After compiling and running with the following commands:
+```
+⤇ javac Server.java StringServer.java 
+⤇ java StringServer 3030
+//We should get//
+Server Started! Visit http://localhost:4000
+```
 
 # PART B| ssh Time
 
