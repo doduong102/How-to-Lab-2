@@ -23,10 +23,18 @@ How do the values of any relevant fields of the class change from this specific 
 After compiling and running with the following commands:
 ```
 ⤇ javac Server.java StringServer.java 
-⤇ java StringServer 3030
+⤇ java StringServer 3010
 //We should get//
-Server Started! Visit http://localhost:4000
+Server Started! Visit http://localhost:3010
 ```
+Following the link it spat out...
+We should land here
+![image](https://user-images.githubusercontent.com/130004918/234174871-9df2d891-3158-41b3-92d1-2e1af833e328.png)
+Now in the url we can test our /add-message implementation
+Copying this 'http://localhost:3010/add-message?s=Hello' into the url should yield:
+![image](https://user-images.githubusercontent.com/130004918/234175432-473cee12-3dfe-4434-a447-05d4f5470146.png)
+Once more with 'http://localhost:3010/add-message?s=Hey, Hi, Hello' should yield:
+![image](https://user-images.githubusercontent.com/130004918/234175517-c127edae-7eaa-4c7f-a926-6d36f443a9f1.png)
 
 # PART B| ssh Time
 
