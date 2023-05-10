@@ -37,7 +37,7 @@ Copying this 'http://localhost:3010/add-message?s=Hello' into the url should yie
 
 Which methods in your code are called?
 
-'public static void main' is used to run the server given a port number.
+`public static void main` is used to run the server given a port number.
 
 'handleRequest' performs all the the commands we want out of the URL
 
