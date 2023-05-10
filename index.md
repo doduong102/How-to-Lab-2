@@ -39,13 +39,13 @@ Which methods in your code are called?
 
 `public static void main` is used to run the server given a port number.
 
-'handleRequest' performs all the the commands we want out of the URL
+`handleRequest` performs all the the commands we want out of the URL
 
 What are the relevant arguments to those methods, and the values of any relevant fields of the class?
 
 our 'main' method takes a string argument that will be used as the port of the server. Sometimes we cannot use a specific port because someone else on the same localhost has already taken it. 
 
-'handleRequest' essentially "reads" through our URL. If the url is the same 
+`handleRequest` essentially "reads" through our URL. If the url is the same 
 How do the values of any relevant fields of the class change from this specific request? If no values got changed, explain why.
 
 Once more with 'http://localhost:3010/add-message?s=Hey, Hi, Hello' should yield:
