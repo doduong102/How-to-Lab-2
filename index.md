@@ -53,6 +53,19 @@ Once more with 'http://localhost:3010/add-message?s=Hey, Hi, Hello' should yield
 
 Nice! Our basic implentation is working.
 
+Which methods in your code are called?
+
+`public static void main` is used to run the server given a port number.
+
+`handleRequest` performs all the the commands we want out of the URL
+
+What are the relevant arguments to those methods, and the values of any relevant fields of the class?
+
+our `main` method takes a string argument that will be parsed into the port of the server. Sometimes we cannot use a specific port because someone else on the same localhost has already taken it. 
+
+`handleRequest` essentially "reads" through our URL. If the url is unchanged and we press enter, `handleRequest` will basically just refresh the page. When we add `/add-message?s=Hello` our method will add our input the string following s= to our server in a new line. Our argument for 
+How do the values of any relevant fields of the class change from this specific request? If no values got changed, explain why.
+
 # PART B| deBugGinG
 
 ![image](https://user-images.githubusercontent.com/130004918/234176128-f3412890-b350-4aae-a712-0dc7ccce099b.png)
