@@ -70,8 +70,6 @@ How do the values of any relevant fields of the class change from this specific 
 
 ![image](https://user-images.githubusercontent.com/130004918/234176128-f3412890-b350-4aae-a712-0dc7ccce099b.png)
 
-A failure-inducing input for the buggy program, as a JUnit test and any associated code (write it as a code block in Markdown)
-
 Running these two commands
 ```
 javac -cp ".;lib/hamcrest-core-1.3.jar;lib/junit-4.13.2.jar" *.java 
@@ -79,12 +77,12 @@ java -cp ".;lib/junit-4.13.2.jar;lib/hamcrest-core-1.3.jar" org.junit.runner.JUn
 ```
 Causes a failure from our JUnit test that we wrote
 ```
-	@Test 
-	public void testReverseInPlace1() {
-    int[] input1 = {3, 2, 1};
-    ArrayExamples.reverseInPlace(input1);
-    assertArrayEquals(new int[]{1, 2, 3}, input1);
-	}
+@Test 
+public void testReverseInPlace1() {
+int[] input1 = {3, 2, 1};
+ArrayExamples.reverseInPlace(input1);
+assertArrayEquals(new int[]{1, 2, 3}, input1);
+}
 ```
 
 This JUnit test broke the following method from our ArrayExamples file:
@@ -97,8 +95,48 @@ This JUnit test broke the following method from our ArrayExamples file:
   }
 ```
 
-An input that doesn’t induce a failure, as a JUnit test and any associated code (write it as a code block in Markdown)
-The symptom, as the output of running the tests (provide it as a screenshot of running JUnit with at least the two inputs above)
+For the same method `reverseInPlace`, here's a non-failure inducing JUnit test:
+```
+@Test 
+public void testReverseInPlace() {
+int[] input1 = { 3 };
+ArrayExamples.reverseInPlace(input1);
+assertArrayEquals(new int[]{ 3 }, input1);
+}
+```
+
+Running these two commands
+```
+javac -cp ".;lib/hamcrest-core-1.3.jar;lib/junit-4.13.2.jar" *.java 
+java -cp ".;lib/junit-4.13.2.jar;lib/hamcrest-core-1.3.jar" org.junit.runner.JUnitCore ArrayTests
+```
+Should tell us something along the lines of two tests ran and one test failed. Here's the screenshot of our output.
+
+<img width="767" alt="image" src="https://github.com/doduong102/How-to-Lab-2/assets/130004918/2e89e8da-d61a-410b-8cce-c98a890f46d3">
+
+Our broken method from earlier:
+```
+//BEFORE
+  static void reverseInPlace(int[] arr) {
+    for(int i = 0; i < arr.length; i += 1) {
+      arr[i] = arr[arr.length - i - 1];
+    }
+  }
+```
+And fixed method:
+```
+//AFTER
+  static void reverseInPlace(int[] arr) {
+    int mid = arr.length / 2;
+    for(int i = 0; i < mid; i++) {
+      int temp = arr[i];
+      arr[i] = arr[arr.length - i - 1];
+      arr[arr.length - i - 1] = temp;
+    }
+  }
+```
+It was broken because our expected values would give us sometihng like
+
 The bug, as the before-and-after code change required to fix it (as two code blocks in Markdown)
 Briefly describe why the fix addresses the issue.
 
