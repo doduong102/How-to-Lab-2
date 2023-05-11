@@ -45,26 +45,21 @@ What are the relevant arguments to those methods, and the values of any relevant
 
 our 'main' method takes a string argument that will be used as the port of the server. Sometimes we cannot use a specific port because someone else on the same localhost has already taken it. 
 
-`handleRequest` essentially "reads" through our URL. If the url is the same 
-How do the values of any relevant fields of the class change from this specific request? If no values got changed, explain why.
+`handleRequest` essentially "reads" through our URL. If `URI` is found to be different than what we're looking for that is what determines what actions our `if` statements will perform
 
 Once more with 'http://localhost:3010/add-message?s=Hey, Hi, Hello' should yield:
 ![image](https://user-images.githubusercontent.com/130004918/234175517-c127edae-7eaa-4c7f-a926-6d36f443a9f1.png)
 
 Nice! Our basic implentation is working.
 
-Which methods in your code are called?
 
 `public static void main` is used to run the server given a port number.
 
 `handleRequest` performs all the the commands we want out of the URL
 
-What are the relevant arguments to those methods, and the values of any relevant fields of the class?
-
 our `main` method takes a string argument that will be parsed into the port of the server. Sometimes we cannot use a specific port because someone else on the same localhost has already taken it. 
 
-`handleRequest` essentially "reads" through our URL. If the url is unchanged and we press enter, `handleRequest` will basically just refresh the page. When we add `/add-message?s=Hello` our method will add our input the string following s= to our server in a new line. Our argument for 
-How do the values of any relevant fields of the class change from this specific request? If no values got changed, explain why.
+`handleRequest` essentially "reads" through our URL. If the url is unchanged and we press enter, `handleRequest` will basically just refresh the page. When we add `/add-message?s=Hello` our method will add our input the string following s= to our server in a new line. Our argument `s=` just determines the string to be added. The code will add a `n/` at the end so that all of our added strings are in a vertical list
 
 # PART B| deBugGinG
 
@@ -129,19 +124,17 @@ And fixed method:
   static void reverseInPlace(int[] arr) {
     int mid = arr.length / 2;
     for(int i = 0; i < mid; i++) {
-      int temp = arr[i];
+      int j = arr[i];
       arr[i] = arr[arr.length - i - 1];
-      arr[arr.length - i - 1] = temp;
+      arr[arr.length - i - 1] = j;
     }
   }
 ```
-It was broken because our expected values would give us sometihng like
+Our old method was broken because it was just replacing it element for element, our main issue comes from when we get towards the end of our array it will replace the ending elements with the newly changed end elements, basically making it the same. We run the original loop over the first half of the array, then for the second half using variable j to properly replace the end elements
 
-The bug, as the before-and-after code change required to fix it (as two code blocks in Markdown)
-Briefly describe why the fix addresses the issue.
 
 # Part C| Reflections
 
 ![image](https://user-images.githubusercontent.com/130004918/234176285-6979e4d3-15af-475d-8b23-b793aae8dd8a.png)
 
-WiP
+I was in CSE12 and I didn't know that you could run JUnit tests outside of eclipse. Technically I knew it existed but it was nice to see it implemented directly like this because I don't actually like eclipse.
